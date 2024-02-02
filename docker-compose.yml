@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  maildev:
+    container_name: "docker_maildev"
+    image: maildev/maildev
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+    ports:
+      - "${MAILDEV_PORT}:80"
+    restart: always
